@@ -1,0 +1,39 @@
+﻿@model Basic_MVC.Models.CustomerOrderViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Orders</title>
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <p><strong>ID:</strong> @Model.Customer.Id</p>
+    <p><strong>First Name:</strong> @Model.Customer.FirstName</p>
+    <p><strong>Last Name:</strong> @Model.Customer.LastName</p>
+    <p><strong>Email:</strong> @Model.Customer.Email</p>
+
+    <h2>Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.ProductName</td>
+                        <td>@order.Price.ToString("C")</td>
+                        <td>@order.Quantity</td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
